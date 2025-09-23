@@ -1,5 +1,5 @@
 import { CurrentWeather } from '@/components/features/weather/current-weather';
-import { SearchPlaceWeatherForm } from '@/components/features/weather/search-place-weather-form';
+import { SearchCity } from '@/components/features/weather/search-city';
 import { WeatherDailyForecast } from '@/components/features/weather/weather-daily-forecast';
 import { WeatherHourlyForecast } from '@/components/features/weather/weather-hourly-forecast';
 import { Header } from '@/components/layout/header';
@@ -13,7 +13,7 @@ export default function Home() {
         How&apos;s the sky looking today?
       </h1>
 
-      <SearchPlaceWeatherForm />
+      <SearchCity />
 
       <main className="grid gap-8 lg:grid-cols-9">
         <div className="space-y-8 overflow-hidden lg:col-span-6 lg:space-y-12">
