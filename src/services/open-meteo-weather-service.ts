@@ -5,7 +5,7 @@ import {
 } from '@/types/weather';
 import { fetchWeatherApi } from 'openmeteo';
 
-export class OpenMeteoService {
+export class OpenMeteoWeatherService {
   private readonly BASE_URL = 'https://api.open-meteo.com/v1/forecast';
 
   public async getCurrentWeather({

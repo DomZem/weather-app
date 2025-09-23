@@ -1,4 +1,4 @@
-import { OpenMeteoService } from '@/services/open-meteo-service';
+import { OpenMeteoWeatherService } from '@/services/open-meteo-weather-service';
 import { WeatherSettings } from '@/stores/weather-settings-store';
 import { useQuery } from '@tanstack/react-query';
 
@@ -18,7 +18,7 @@ export const useHourlyDateWeather = ({
       date,
     ],
     queryFn: async () => {
-      const service = new OpenMeteoService();
+      const service = new OpenMeteoWeatherService();
       return await service.getHourlyWeather({
         latitude: settings.latitude,
         longitude: settings.longitude,
