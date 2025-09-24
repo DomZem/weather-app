@@ -1,30 +1,32 @@
 import { OpenMeteoWeatherService } from '@/services/open-meteo-weather-service';
-import { WeatherSettings } from '@/stores/weather-settings-store';
+import { WeatherSearch } from '@/stores/weather-search-store';
 import { useQuery } from '@tanstack/react-query';
 
 export const useHourlyDateWeather = ({
-  settings,
+  weatherSearch,
   date,
 }: {
-  settings: WeatherSettings;
+  weatherSearch: WeatherSearch;
   date: string;
 }) => {
   return useQuery({
     queryKey: [
       'hourly-date-weather',
-      settings.latitude,
-      settings.longitude,
-      settings.temperatureUnit,
+      weatherSearch.latitude,
+      weatherSearch.longitude,
+      weatherSearch.temperatureUnit,
       date,
     ],
     queryFn: async () => {
       const service = new OpenMeteoWeatherService();
       return await service.getHourlyWeather({
-        latitude: settings.latitude,
-        longitude: settings.longitude,
-        temperatureUnit: settings.temperatureUnit,
+        latitude: weatherSearch.latitude,
+        longitude: weatherSearch.longitude,
+        temperatureUnit: weatherSearch.temperatureUnit,
         date,
       });
     },
+    gcTime: 5 * 60 * 1000, // 5 minutes
+    staleTime: 5 * 60 * 1000, // 5 minutes
   });
 };

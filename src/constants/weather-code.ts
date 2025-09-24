@@ -41,6 +41,14 @@ export const WEATHER_CODE_DICTIONARY: Record<
     description: 'dense drizzle',
     icon: '/assets/icons/weathers/drizzle.svg',
   },
+  56: {
+    description: 'light freezing drizzle',
+    icon: '/assets/icons/weathers/drizzle.svg',
+  },
+  57: {
+    description: 'dense freezing drizzle',
+    icon: '/assets/icons/weathers/drizzle.svg',
+  },
   61: {
     description: 'light rain',
     icon: '/assets/icons/weathers/rain.svg',
@@ -53,17 +61,13 @@ export const WEATHER_CODE_DICTIONARY: Record<
     description: 'heavy rain',
     icon: '/assets/icons/weathers/rain.svg',
   },
-  77: {
-    description: 'snow grains',
-    icon: '/assets/icons/weathers/snow.svg',
+  66: {
+    description: 'light freezing rain',
+    icon: '/assets/icons/weathers/rain.svg',
   },
-  85: {
-    description: 'light snow showers',
-    icon: '/assets/icons/weathers/snow.svg',
-  },
-  86: {
-    description: 'snow showers',
-    icon: '/assets/icons/weathers/snow.svg',
+  67: {
+    description: 'heavy freezing rain',
+    icon: '/assets/icons/weathers/rain.svg',
   },
   71: {
     description: 'light snow',
@@ -75,6 +79,30 @@ export const WEATHER_CODE_DICTIONARY: Record<
   },
   75: {
     description: 'heavy snow',
+    icon: '/assets/icons/weathers/snow.svg',
+  },
+  77: {
+    description: 'snow grains',
+    icon: '/assets/icons/weathers/snow.svg',
+  },
+  80: {
+    description: 'slight rain showers',
+    icon: '/assets/icons/weathers/rain.svg',
+  },
+  81: {
+    description: 'light rain showers',
+    icon: '/assets/icons/weathers/rain.svg',
+  },
+  82: {
+    description: 'rain showers',
+    icon: '/assets/icons/weathers/rain.svg',
+  },
+  85: {
+    description: 'light snow showers',
+    icon: '/assets/icons/weathers/snow.svg',
+  },
+  86: {
+    description: 'snow showers',
     icon: '/assets/icons/weathers/snow.svg',
   },
   95: {

@@ -6,20 +6,24 @@ import {
 } from '@/types/weather';
 import { atom } from 'jotai';
 
-export type WeatherSettings = {
+export type WeatherSearch = {
   latitude: number;
   longitude: number;
   temperatureUnit: WeatherTemperatureUnit;
   windSpeedUnit: WeatherWindSpeedUnit;
   precipitationUnit: WeatherPrecipitationUnit;
   metrics: WeatherMetrics;
+  cityName: string;
+  countryName: string;
 };
 
-export const weatherSettingsStore = atom<WeatherSettings>({
-  latitude: 49.88928,
-  longitude: 19.4904064,
+export const weatherSearchStore = atom<WeatherSearch>({
+  latitude: 52.52437,
+  longitude: 13.41053,
   temperatureUnit: 'celsius',
   windSpeedUnit: 'kmh',
   precipitationUnit: 'mm',
   metrics: 'metric',
+  cityName: 'Berlin',
+  countryName: 'Germany',
 });

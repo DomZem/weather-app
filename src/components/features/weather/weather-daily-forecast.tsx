@@ -10,21 +10,21 @@ import {
 } from '@/components/ui/carousel';
 import { WEATHER_CODE_DICTIONARY } from '@/constants/weather-code';
 import { useDailyWeather } from '@/hooks/weather/use-daily-weather';
-import { weatherSettingsStore } from '@/stores/weather-settings-store';
+import { weatherSearchStore } from '@/stores/weather-search-store';
 import dayjs from 'dayjs';
 import Autoplay from 'embla-carousel-autoplay';
 import { useAtomValue } from 'jotai';
 import Image from 'next/image';
 
 export const WeatherDailyForecast = () => {
-  const settings = useAtomValue(weatherSettingsStore);
+  const weatherSearch = useAtomValue(weatherSearchStore);
 
   const {
     isPending,
     error,
     data: dailyWeathers,
   } = useDailyWeather({
-    settings,
+    weatherSearch,
   });
 
   if (isPending) {

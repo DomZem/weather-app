@@ -11,7 +11,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { weatherSettingsStore } from '@/stores/weather-settings-store';
+import { weatherSearchStore } from '@/stores/weather-search-store';
 import { useAtom } from 'jotai';
 import { ChevronDown, Settings } from 'lucide-react';
 import { useState } from 'react';
@@ -19,11 +19,11 @@ import { useState } from 'react';
 export const WeatherConfigDropdown = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const [settings, setSettings] = useAtom(weatherSettingsStore);
+  const [weatherSearch, setWeatherSearch] = useAtom(weatherSearchStore);
 
   const handleSwitchMetrics = () => {
-    if (settings.metrics === 'metric') {
-      setSettings((prev) => ({
+    if (weatherSearch.metrics === 'metric') {
+      setWeatherSearch((prev) => ({
         ...prev,
         metrics: 'imperial',
         temperatureUnit: 'fahrenheit',
@@ -33,7 +33,7 @@ export const WeatherConfigDropdown = () => {
       return;
     }
 
-    setSettings((prev) => ({
+    setWeatherSearch((prev) => ({
       ...prev,
       metrics: 'metric',
       temperatureUnit: 'celsius',
@@ -57,16 +57,16 @@ export const WeatherConfigDropdown = () => {
           onSelect={(e) => e.preventDefault()}
           onClick={handleSwitchMetrics}
         >
-          Switch to {settings.metrics === 'metric' ? 'Imperial' : 'Metric'}
+          Switch to {weatherSearch.metrics === 'metric' ? 'Imperial' : 'Metric'}
         </DropdownMenuItem>
 
         <DropdownMenuLabel className="mt-1">Temperature</DropdownMenuLabel>
         <DropdownMenuGroup>
           <DropdownMenuCheckboxItem
             onSelect={(e) => e.preventDefault()}
-            checked={settings.temperatureUnit === 'celsius'}
+            checked={weatherSearch.temperatureUnit === 'celsius'}
             onCheckedChange={() =>
-              setSettings((prev) => ({
+              setWeatherSearch((prev) => ({
                 ...prev,
                 temperatureUnit: 'celsius',
               }))
@@ -76,9 +76,9 @@ export const WeatherConfigDropdown = () => {
           </DropdownMenuCheckboxItem>
           <DropdownMenuCheckboxItem
             onSelect={(e) => e.preventDefault()}
-            checked={settings.temperatureUnit === 'fahrenheit'}
+            checked={weatherSearch.temperatureUnit === 'fahrenheit'}
             onCheckedChange={() =>
-              setSettings((prev) => ({
+              setWeatherSearch((prev) => ({
                 ...prev,
                 temperatureUnit: 'fahrenheit',
               }))
@@ -94,9 +94,9 @@ export const WeatherConfigDropdown = () => {
         <DropdownMenuGroup>
           <DropdownMenuCheckboxItem
             onSelect={(e) => e.preventDefault()}
-            checked={settings.windSpeedUnit === 'kmh'}
+            checked={weatherSearch.windSpeedUnit === 'kmh'}
             onCheckedChange={() =>
-              setSettings((prev) => ({
+              setWeatherSearch((prev) => ({
                 ...prev,
                 windSpeedUnit: 'kmh',
               }))
@@ -106,9 +106,9 @@ export const WeatherConfigDropdown = () => {
           </DropdownMenuCheckboxItem>
           <DropdownMenuCheckboxItem
             onSelect={(e) => e.preventDefault()}
-            checked={settings.windSpeedUnit === 'mph'}
+            checked={weatherSearch.windSpeedUnit === 'mph'}
             onCheckedChange={() =>
-              setSettings((prev) => ({
+              setWeatherSearch((prev) => ({
                 ...prev,
                 windSpeedUnit: 'mph',
               }))
@@ -124,9 +124,9 @@ export const WeatherConfigDropdown = () => {
         <DropdownMenuGroup>
           <DropdownMenuCheckboxItem
             onSelect={(e) => e.preventDefault()}
-            checked={settings.precipitationUnit === 'mm'}
+            checked={weatherSearch.precipitationUnit === 'mm'}
             onCheckedChange={() =>
-              setSettings((prev) => ({
+              setWeatherSearch((prev) => ({
                 ...prev,
                 precipitationUnit: 'mm',
               }))
@@ -136,9 +136,9 @@ export const WeatherConfigDropdown = () => {
           </DropdownMenuCheckboxItem>
           <DropdownMenuCheckboxItem
             onSelect={(e) => e.preventDefault()}
-            checked={settings.precipitationUnit === 'inch'}
+            checked={weatherSearch.precipitationUnit === 'inch'}
             onCheckedChange={() =>
-              setSettings((prev) => ({
+              setWeatherSearch((prev) => ({
                 ...prev,
                 precipitationUnit: 'inch',
               }))

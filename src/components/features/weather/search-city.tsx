@@ -24,7 +24,7 @@ import {
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { cn } from '@/lib/utils';
 import { OpenMeteoWeatherGeocodingService } from '@/services/open-meteo-geocoding-service';
-import { weatherSettingsStore } from '@/stores/weather-settings-store';
+import { weatherSearchStore } from '@/stores/weather-search-store';
 import { OpenMeteoGeocodingLocation } from '@/types/open-meteo-geocoding';
 import { useMutation } from '@tanstack/react-query';
 import { useSetAtom } from 'jotai';
@@ -39,7 +39,7 @@ export const SearchCity = () => {
   const [open, setOpen] = useState(false);
   const [locations, setLocations] = useState<OpenMeteoGeocodingLocation[]>([]);
 
-  const setWeatherSettings = useSetAtom(weatherSettingsStore);
+  const setWeatherSearch = useSetAtom(weatherSearchStore);
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -68,10 +68,12 @@ export const SearchCity = () => {
   const selectLocation = (location: OpenMeteoGeocodingLocation) => {
     form.setValue('cityName', location.name);
     setOpen(false);
-    setWeatherSettings((prev) => ({
+    setWeatherSearch((prev) => ({
       ...prev,
       latitude: location.latitude,
       longitude: location.longitude,
+      cityName: location.name,
+      countryName: location.country,
     }));
   };
 

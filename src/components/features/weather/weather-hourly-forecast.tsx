@@ -3,7 +3,7 @@
 import { Card, CardTitle } from '@/components/ui/card';
 import { WEATHER_CODE_DICTIONARY } from '@/constants/weather-code';
 import { useHourlyDateWeather } from '@/hooks/weather/use-hourly-date-weather';
-import { weatherSettingsStore } from '@/stores/weather-settings-store';
+import { weatherSearchStore } from '@/stores/weather-search-store';
 import dayjs from 'dayjs';
 import { useAtomValue } from 'jotai';
 import Image from 'next/image';
@@ -11,7 +11,7 @@ import { useState } from 'react';
 import { WeatherDaySelect } from './weather-day-select';
 
 export const WeatherHourlyForecast = () => {
-  const settings = useAtomValue(weatherSettingsStore);
+  const weatherSearch = useAtomValue(weatherSearchStore);
 
   const [selectedDate, setSelectedDate] = useState(new Date());
 
@@ -22,7 +22,7 @@ export const WeatherHourlyForecast = () => {
     error,
     data: hourlyWeathers,
   } = useHourlyDateWeather({
-    settings,
+    weatherSearch,
     date: formattedDate,
   });
 

@@ -1,31 +1,33 @@
 import { OpenMeteoWeatherService } from '@/services/open-meteo-weather-service';
-import { WeatherSettings } from '@/stores/weather-settings-store';
+import { WeatherSearch } from '@/stores/weather-search-store';
 import { useQuery } from '@tanstack/react-query';
 
 export const useDailyWeather = ({
-  settings,
+  weatherSearch,
 }: {
-  settings: WeatherSettings;
+  weatherSearch: WeatherSearch;
 }) => {
   return useQuery({
     queryKey: [
       'daily-weather',
-      settings.latitude,
-      settings.longitude,
-      settings.temperatureUnit,
-      settings.windSpeedUnit,
-      settings.precipitationUnit,
+      weatherSearch.latitude,
+      weatherSearch.longitude,
+      weatherSearch.temperatureUnit,
+      weatherSearch.windSpeedUnit,
+      weatherSearch.precipitationUnit,
     ],
     queryFn: async () => {
       const service = new OpenMeteoWeatherService();
       return await service.getDailyWeather({
-        latitude: settings.latitude,
-        longitude: settings.longitude,
+        latitude: weatherSearch.latitude,
+        longitude: weatherSearch.longitude,
         forecastDays: 14,
-        temperatureUnit: settings.temperatureUnit,
-        windSpeedUnit: settings.windSpeedUnit,
-        precipitationUnit: settings.precipitationUnit,
+        temperatureUnit: weatherSearch.temperatureUnit,
+        windSpeedUnit: weatherSearch.windSpeedUnit,
+        precipitationUnit: weatherSearch.precipitationUnit,
       });
     },
+    gcTime: 5 * 60 * 1000, // 5 minutes
+    staleTime: 5 * 60 * 1000, // 5 minutes
   });
 };
