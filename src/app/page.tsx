@@ -1,6 +1,6 @@
-import { CurrentWeather } from '@/components/features/weather/current-weather';
+import { CurrentWeather } from '@/components/features/weather/current-weather/current-weather';
+import { WeatherDailyForecast } from '@/components/features/weather/daily-forecast/weather-daily-forecast';
 import { SearchCity } from '@/components/features/weather/search-city';
-import { WeatherDailyForecast } from '@/components/features/weather/weather-daily-forecast';
 import { WeatherHourlyForecast } from '@/components/features/weather/weather-hourly-forecast';
 import { Header } from '@/components/layout/header';
 
