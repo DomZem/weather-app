@@ -86,7 +86,7 @@ const WeatherHourlyForecastContainer = ({
   ...props
 }: ComponentProps<typeof Card>) => {
   return (
-    <Card className={cn('p-4 md:p-6', className)} {...props}>
+    <Card className={cn('h-full p-4 md:p-6', className)} {...props}>
       {children}
     </Card>
   );
