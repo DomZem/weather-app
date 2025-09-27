@@ -39,7 +39,7 @@ export const WeatherHourlyForecast = () => {
   if (isPending) return <WeatherHourlyForecastSkeleton />;
 
   if (error || !hourlyWeathers) {
-    return <div>asdasda</div>;
+    throw new Error('Failed to load weather data');
   }
 
   return (

@@ -1,3 +1,4 @@
+import { AppLayout } from '@/components/layout/app-layout';
 import { ReactQueryProvider } from '@/providers/react-query-provider';
 import type { Metadata } from 'next';
 import { Bricolage_Grotesque, DM_Sans } from 'next/font/google';
@@ -30,7 +31,9 @@ export default function RootLayout({
       <body
         className={`${dmSans.variable} ${bricolageGrotesque.variable} antialiased`}
       >
-        <ReactQueryProvider>{children}</ReactQueryProvider>
+        <ReactQueryProvider>
+          <AppLayout>{children}</AppLayout>
+        </ReactQueryProvider>
       </body>
     </html>
   );

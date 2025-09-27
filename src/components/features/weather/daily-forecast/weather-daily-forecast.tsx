@@ -32,7 +32,7 @@ export const WeatherDailyForecast = () => {
   }
 
   if (error || !dailyWeathers) {
-    return <div>Error loading data</div>;
+    throw new Error('Failed to load weather data');
   }
 
   return (

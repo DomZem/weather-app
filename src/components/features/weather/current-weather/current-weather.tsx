@@ -36,7 +36,7 @@ export const CurrentWeather = () => {
   }
 
   if (error || !weather) {
-    return <div>asda</div>;
+    throw new Error('Failed to load weather data');
   }
 
   return (

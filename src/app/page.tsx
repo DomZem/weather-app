@@ -2,13 +2,10 @@ import { CurrentWeather } from '@/components/features/weather/current-weather/cu
 import { WeatherDailyForecast } from '@/components/features/weather/daily-forecast/weather-daily-forecast';
 import { WeatherHourlyForecast } from '@/components/features/weather/hourly-forecast/weather-hourly-forecast';
 import { SearchCity } from '@/components/features/weather/search-city';
-import { Header } from '@/components/layout/header';
 
 export default function Home() {
   return (
-    <div className="mx-auto min-h-screen w-full max-w-[79rem] space-y-12 px-4 pb-4 md:px-6 md:pb-6 lg:space-y-16">
-      <Header />
-
+    <>
       <h1 className="text-preset-2 font-bricolage text-center">
         How&apos;s the sky looking today?
       </h1>
@@ -25,6 +22,6 @@ export default function Home() {
           <WeatherHourlyForecast />
         </div>
       </main>
-    </div>
+    </>
   );
 }
