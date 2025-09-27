@@ -1,7 +1,7 @@
 import { CurrentWeather } from '@/components/features/weather/current-weather/current-weather';
 import { WeatherDailyForecast } from '@/components/features/weather/daily-forecast/weather-daily-forecast';
+import { WeatherHourlyForecast } from '@/components/features/weather/hourly-forecast/weather-hourly-forecast';
 import { SearchCity } from '@/components/features/weather/search-city';
-import { WeatherHourlyForecast } from '@/components/features/weather/weather-hourly-forecast';
 import { Header } from '@/components/layout/header';
 
 export default function Home() {

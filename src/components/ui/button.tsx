@@ -11,6 +11,7 @@ const buttonVariants = cva(
       variant: {
         default: 'bg-primary text-primary-foreground hover:bg-primary-hover',
         muted: 'bg-muted text-foreground',
+        ghost: '',
         destructive:
           'bg-destructive text-white hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60',
       },
@@ -18,7 +19,7 @@ const buttonVariants = cva(
         default: 'px-6 h-14',
         sm: 'px-4 h-11 text-preset-7',
         // lg: 'h-10 rounded-md px-6 has-[>svg]:px-4',
-        // icon: 'size-9',
+        icon: 'size-9',
       },
     },
     defaultVariants: {

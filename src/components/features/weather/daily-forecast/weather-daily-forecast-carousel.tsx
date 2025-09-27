@@ -35,8 +35,8 @@ const WeatherDailyForecastCarouselHeader = () => {
       <p className="text-preset-5">Daily forecast</p>
 
       <div className="inline-flex items-center gap-2">
-        <CarouselPrevious />
-        <CarouselNext />
+        <CarouselPrevious className="static translate-none" />
+        <CarouselNext className="static translate-none" />
       </div>
     </div>
   );

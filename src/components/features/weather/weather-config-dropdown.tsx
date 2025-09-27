@@ -11,6 +11,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
+import { cn } from '@/lib/utils';
 import { weatherSearchStore } from '@/stores/weather-search-store';
 import { useAtom } from 'jotai';
 import { ChevronDown, Settings } from 'lucide-react';
@@ -18,7 +19,6 @@ import { useState } from 'react';
 
 export const WeatherConfigDropdown = () => {
   const [isOpen, setIsOpen] = useState(false);
-
   const [weatherSearch, setWeatherSearch] = useAtom(weatherSearchStore);
 
   const handleSwitchMetrics = () => {
@@ -43,12 +43,17 @@ export const WeatherConfigDropdown = () => {
   };
 
   return (
-    <DropdownMenu>
+    <DropdownMenu onOpenChange={setIsOpen}>
       <DropdownMenuTrigger asChild>
         <Button className="gap-2.5" variant="muted" size="sm">
           <Settings size={16} />
-          Untis
-          <ChevronDown />
+          Units
+          <ChevronDown
+            className={cn(
+              'transition-transform',
+              isOpen ? 'rotate-180' : 'rotate-0',
+            )}
+          />
         </Button>
       </DropdownMenuTrigger>
 
